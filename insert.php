@@ -1,0 +1,41 @@
+<?php
+include("connection.php");
+if(isset($_POST['submit'])){
+    $nom=htmlspecialchars(trim(strtolower($_POST['name'])));
+    $prenom=htmlspecialchars(trim(strtolower($_POST['prenom'])));
+    $age=htmlspecialchars(trim(strtolower($_POST['age'])));
+    $email=htmlspecialchars(trim(strtolower($_POST['email'])));
+    $cin=htmlspecialchars(trim(strtolower($_POST['cin'])));
+    $date=htmlspecialchars(trim(strtolower($_POST['date'])));
+    $salary=htmlspecialchars(trim(strtolower($_POST['salary'])));
+    $query="INSERT INTO pme(name,prenom,age,email,cin,date,salary)VALUES('$nom','$prenom','$age','$email','$cin','$date','$salary')";
+    mysqli_query($conect,$query);
+    mysqli_close($conect);
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>INSERT PAGE</title>
+</head>
+<body>
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+        <input type="text" placeholder="NOM" name="name" class="item"><br>
+        <input type="text" placeholder="PRENOM" name="prenom" class="item"><br>
+        <input type="number" placeholder="AGE" name="age" class="item"><br>
+        <input type="email" placeholder="EMAIL" name="email" class="item"><br>
+        <input type="text" placeholder="CIN" name="cin" class="item"><br>
+        <input type="date" class="item" name="date"><br>
+        <input type="number" placeholder="SALARY" name="salary" class="item"><br>
+        <input type="submit" name="submit" class="btn"><br>
+        <a href="delete.php">Delete</a><a href="select.php">Select</a><a href="update.php">Update</a>
+    </form>
+
+    
+    
+</body>
+</html>
