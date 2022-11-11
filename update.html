@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("connection.html");
 if(isset($_POST['submit'])){
     $cin=htmlspecialchars(trim(strtolower($_POST['cin'])));
     $query="UPDATE pme set name='$_POST[name]',prenom='$_POST[prenom]',age='$_POST[age]',email='$_POST[email]',
@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
         <input type="date" class="item" name="date"><br>
         <input type="number" placeholder="SALARY" name="salary" class="item"><br>
         <input type="submit" name="submit" class="btn"><br>
-        <a href="delete.php">Delete</a><a href="select.php">Select</a><a href="insert.php">Insert</a>
+        <a href="delete.html">Delete</a><a href="select.html">Select</a><a href="insert.html">Insert</a>
     </form>
 
     
