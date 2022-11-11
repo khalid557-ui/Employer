@@ -55,7 +55,7 @@
         <a href="delete.php">Delete</a><a href="insert.php">insert</a><a href="update.php">Update</a>
     </form>
     <?php
-        include("connection.php");
+        include("connection.html");
         if(isset($_POST['submit'])){
             $cin=htmlspecialchars(trim(strtolower($_POST['cin'])));
             $query="SELECT * FROM pme WHERE cin='$_POST[cin]'";
